@@ -1,0 +1,14 @@
+# Update apt repo, chache, upgrade and required all packages on debian
+- import_tasks: update-system.yml
+
+# Add gpg apt key and repository docker
+- import_tasks: gpg-repository-docker.yml
+
+# Install docker
+- import_tasks: install.yml
+
+# Start docker
+- name: docker started
+  service:
+    name: docker.service
+    state: started

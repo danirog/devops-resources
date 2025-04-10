@@ -1,0 +1,28 @@
+# Updating the list of packages
+- name: Updating the list of packages
+  apt:
+    update_cache: yes
+    force_apt_get: yes
+    state: latest
+    cache_valid_time: 3600
+
+# Updating distribution packages
+- name: Updating distribution packages
+  apt:
+    upgrade: dist
+    autoremove: yes
+    autoclean: yes
+    force_apt_get: yes
+    state: latest
+    
+# Install required system packages 
+- name: Install required system packages 
+  apt:
+    pkg:
+      - ca-certificates 
+      - curl 
+      - gnupg2
+      - lsb-release
+      - zip 
+      - htop
+    update_cache: true

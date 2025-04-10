@@ -1,0 +1,16 @@
+plugin: aws_ec2
+
+# The access key for your AWS account.
+aws_access_key: "{{ lookup('env', 'AWS_ACCESS_KEY_ID') }}"
+
+# The secret access key for your AWS account.
+aws_secret_key: "{{ lookup('env', 'AWS_SECRET_ACCESS_KEY') }}"
+
+regions:
+  - "{{ lookup('env', 'AWS_REGION') }}"
+
+hostnames:
+  - ip-address
+
+groups:
+  ec2: "'organization-name-ec2' in tags.Name"
