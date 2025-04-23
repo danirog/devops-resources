@@ -14,7 +14,7 @@ services:
     networks:
       - postgresql_net
     volumes:
-      - postgresql-data:/var/lib/postgresql/data
+      - postgresql_data:/var/lib/postgresql/data
 
   pgadmin:
     image: dpage/pgadmin4:9.2.0
@@ -32,14 +32,14 @@ services:
     networks:
       - postgres_net
     volumes:
-      - pgadmin-data:/var/lib/pgadmin
+      - pgadmin_data:/var/lib/pgadmin
 
 networks:
   postgresql_net:
     driver: bridge
 
 volumes:
-  postgresql-data:
+  postgresql_data:
     external: false
-  pgadmin-data:
+  pgadmin_data:
     external: false
