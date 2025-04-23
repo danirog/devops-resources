@@ -1,0 +1,21 @@
+services:
+  registry:
+    image: registry:latest
+    container_name: "local-registry"
+    restart: always
+    environment:
+      - REGISTRY_STORAGE_DELETE_ENABLED=true
+    ports:
+      - "5000:5000"
+    networks:
+      - registry_net
+    volumes:
+      - registry_data:/var/lib/registry
+
+networks:
+  registry_net:
+    driver: bridge
+
+volumes:
+  registry_data:
+    external: false
